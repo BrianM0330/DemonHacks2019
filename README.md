@@ -5,6 +5,6 @@ SmartPark is a software that helps users locate available parking spaces around 
 ## Installation
 
 Dev Folder
-1.npm install
+1. npm install
 2. npm run build 
 3. npm start
