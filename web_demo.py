@@ -32,6 +32,7 @@ flags.DEFINE_integer('h_patch', 25, 'Patch height size')
 flags.DEFINE_string('DIR', 'mini_demo/data/FULL_IMAGE_1000x750', 'Directory')
 flags.DEFINE_string('WEATHER', 'SUNNY', 'SUNNY, OVERCAST, RAINY')
 flags.DEFINE_string('W_ID', 'S', 'S, O, R')
+flags.DEFINE_string('location', 'Chicago', 'Location')
 
 nRows_old = 2592
 nCols_old = 1944
@@ -125,6 +126,11 @@ def main(argv):
 	w_patch = FLAGS.w_patch
 	h_patch = FLAGS.h_patch
 	method = FLAGS.method
+	location = FLAGS.location
+
+	plt.title(location + " - Camera " + CAM_ID)
+	plt.xlabel("Training the Machine Learning model")
+	plt.pause(pause)
 
 	slots = load_positions("mini_demo/data/camera" + CAM_ID + ".csv")
 
@@ -184,9 +190,12 @@ def main(argv):
 					img[y1, x1:x2, 0] = 255
 					img[y2, x1:x2, 0] = 255
 
+			plt.title(location + " - Camera " + CAM_ID)
+			plt.xlabel(image_name)
 			plt.imshow(img)
 			plt.pause(pause)
 	plt.show()
+	plt.close()
 
 	# Using OpenCV
 	# img = cv2.imread(image_fn)
