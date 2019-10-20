@@ -19,12 +19,23 @@
         <h1 class="heading-primary home__title">Find Available Parking Spots</h1>
 
 
-        <form class="form" id='sampleform' method='post' action=''>
-            <input type="text" class="form__input" placeholder="Enter location" id="location">
-            <input type='submit' name='Submit' value='Submit' class="btn btn--search" />
+        <form class="form" id='location' method='post' action=''>
+            <input type="search" class="form__input" placeholder="Enter location" id="location">
+            <button type='submit' name='Submit' value='Submit' class="btn btn--search">Submit</button>
+        </form>
+
+        <h4 class="heading-tertiary">Or</h4>
+
+        <form class="form" id='currentLocation' method='post' action=''>
+            <button type='submit' name='Submit' value='Submit' class="btn btn--current">
+                <i class="fas fa-map-marker-alt"></i>
+                Use Current Location
+            </button>
         </form>
 
     </section>
+
+    <script src="https://kit.fontawesome.com/34a50a5364.js"></script>
 </body>
 
 </html>
