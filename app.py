@@ -12,6 +12,12 @@ def main_page():
 def suggest_parking():
     if request.method == 'POST':
         coordinates = request.form['field']
+    #pass the coordinates to a function that makes a query to the Google Maps API
+    #pip install requirements
+    #in terminal flask run
+    #any errors..google them
+    #@app.route is just directing to URLs
+    #'/suggestions' leads to / and the suggestions endpoint
     return coordinates
 
 if __name__ == '__main__':
