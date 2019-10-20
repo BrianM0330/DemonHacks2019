@@ -8,9 +8,10 @@ app = Flask(__name__)
 def main_page():
     return render_template('index.html')
 
-@app.route('/suggestions')
+@app.route('/suggestions', methods=["GET", "POST"])
 def suggest_parking():
-    coordinates = request.form['search']
+    if request.method == 'POST':
+        coordinates = request.form['field']
     return coordinates
 
 if __name__ == '__main__':
