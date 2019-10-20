@@ -1,89 +1,96 @@
 :root {
-    --primary-dark: #7e75fa;
-    --background: #f9f8ff;
-    --shadow-dark: 0 1rem 2rem rgba(0, 0, 0, .2);
-    --shadow-light: 0 1rem 2rem rgba(0, 0, 0, .1); }
-  
-  *,
-  *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit; }
-  
-  html {
-    box-sizing: border-box;
-    font-size: 62.5%; }
-  
-  body {
-    font-family: sans-serif;
-    background-color: var(--background);
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 400; }
-  
-  button:focus {
-    outline: none; }
-  
-  a {
-    text-decoration: none;
-    color: inherit; }
-  
-  .nav {
-    padding: 4rem;
-    font-size: 4rem;
-    color: black;
-    font-family: 'Lato', sans-serif; }
-  
-  .heading-primary {
-    font-family: 'Roboto', sans-serif;
-    font-size: 5.3rem;
-    text-align: center; }
-  
-  .heading-tertiary {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.8rem;
-    color: grey;
-    letter-spacing: .3rem; }
-  
-  .home__title {
-    margin-top: 9rem; }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    max-width: 60rem;
-    margin: 6rem auto;
-    box-shadow: var(--shadow-light);
-    border: none; }
-    .form__input {
-      font-family: inherit;
-      font-size: 2.5rem;
-      padding: 1.5rem 2rem;
-      border-radius: 3px;
-      border: none;
-      border-bottom-color: currentcolor;
-      border-bottom-style: none;
-      border-bottom-width: medium;
-      border-bottom: 3px solid transparent;
-      display: block;
-      transition: all .3s; }
-  
-  .decision-or {
-    text-align: center; }
-  
-  .btn,
-  .btn:link,
-  .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    font-size: 1.6rem;
+  --primary-dark: #7e75fa;
+  --background: #f9f8ff;
+  --shadow-dark: 0 1rem 2rem rgba(0, 0, 0, .2);
+  --shadow-light: 0 1rem 2rem rgba(0, 0, 0, .1); }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  font-family: sans-serif;
+  background-color: var(--background);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400; }
+
+button:focus {
+  outline: none; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+.nav {
+  padding: 4rem;
+  font-size: 4rem;
+  color: black;
+  font-family: 'Lato', sans-serif; }
+
+.heading-primary {
+  font-family: 'Roboto', sans-serif;
+  font-size: 5.3rem;
+  text-align: center; }
+
+.heading-tertiary {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  color: grey;
+  letter-spacing: .3rem;
+  text-align: center; }
+
+.home__title {
+  margin-top: 9rem; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  margin: 6rem auto;
+  box-shadow: var(--shadow-light);
+  border: none; }
+  .form__input {
+    font-family: inherit;
+    font-size: 2.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 3px;
     border: none;
-    cursor: pointer;
-    transition: all .2s; }
-  
-  .btn--search {
-    background-color: #55c57a;
-    color: white; }
-    .btn--search:hover {
-      background-color: #39ac5f; }
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-bottom: 3px solid transparent;
+    display: block;
+    transition: all .3s; }
+
+.decision-or {
+  text-align: center; }
+
+.btn,
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  font-size: 1.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all .2s; }
+
+.btn--search {
+  background-color: #55c57a;
+  color: white; }
+  .btn--search:hover {
+    background-color: #39ac5f; }
+
+.btn--current {
+  background-color: #8AC7DB;
+  color: white; }
+  .btn--current:hover {
+    background-color: #338BA8; }
