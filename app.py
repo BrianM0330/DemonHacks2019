@@ -10,7 +10,7 @@ def main_page():
 
 @app.route('/suggestions', methods=["GET", "POST"])
 def suggest_parking():
-    if request.method == 'POST':
+    if request.method == 'POST':    
         coordinates = request.form['field']
     #pass the coordinates to a function that makes a query to the Google Maps API
     #pip install requirements
