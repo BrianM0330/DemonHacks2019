@@ -7,12 +7,20 @@
     font-size: 1.9rem;
     border: none;
     cursor: pointer;
-    transition: all .2s;
+    transition: all .1s;
+}
+
+.btn:active{
+    background-color:red;
 }
 
 .btn--search {
     background-color: #55c57a;
     color: white;
+
+    &:nth-child(odd) {
+        background-color: #61dd8b;
+    }
 
     &:hover {
         background-color: #39ac5f;

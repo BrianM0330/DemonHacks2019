@@ -2,8 +2,7 @@
     //COLORS
     --primary-dark: #7e75fa;
 
-    --background: #f9f8ff;
-
+    --background: linear-gradient(#ffffff 0%, #ebe9fa 100%);
     --shadow-dark: 0 1rem 2rem rgba(0, 0, 0, .2);
     --shadow-light: 0 1rem 2rem rgba(0, 0, 0, .1);
 }
@@ -22,8 +21,8 @@ html {
 }
 
 body {
+    background-image: var(--background);
     font-family: sans-serif;
-    background-color: var(--background);
     font-family: 'Noto Sans', sans-serif;
     font-weight: 400;
 

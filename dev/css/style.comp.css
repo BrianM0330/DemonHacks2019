@@ -1,6 +1,6 @@
 :root {
   --primary-dark: #7e75fa;
-  --background: #f9f8ff;
+  --background: linear-gradient(#ffffff 0%, #ebe9fa 100%);
   --shadow-dark: 0 1rem 2rem rgba(0, 0, 0, .2);
   --shadow-light: 0 1rem 2rem rgba(0, 0, 0, .1); }
 
@@ -16,8 +16,8 @@ html {
   font-size: 62.5%; }
 
 body {
+  background-image: var(--background);
   font-family: sans-serif;
-  background-color: var(--background);
   font-family: 'Noto Sans', sans-serif;
   font-weight: 400; }
 
@@ -34,9 +34,19 @@ a {
   color: black;
   font-family: 'Lato', sans-serif; }
 
+.available-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 9.3rem;
+  text-align: center; }
+
 .heading-primary {
   font-family: 'Roboto', sans-serif;
   font-size: 5.3rem;
+  text-align: center; }
+
+.heading-secondary {
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
   text-align: center; }
 
 .heading-tertiary {
@@ -46,16 +56,26 @@ a {
   letter-spacing: .3rem;
   text-align: center; }
 
-.home__title {
-  margin-top: 9rem; }
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 45%;
+  margin: 5rem auto; }
+
+.street__titles {
+  margin-top: 3rem; }
+
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
 
 .form {
   display: flex;
   flex-direction: column;
-  max-width: 60rem;
-  margin: 6rem auto;
   box-shadow: var(--shadow-light);
-  border: none; }
+  border: none;
+  width: 40rem; }
   .form__input {
     font-family: inherit;
     font-size: 2.5rem;
@@ -81,11 +101,16 @@ a {
   font-size: 1.9rem;
   border: none;
   cursor: pointer;
-  transition: all .2s; }
+  transition: all .1s; }
+
+.btn:active {
+  background-color: red; }
 
 .btn--search {
   background-color: #55c57a;
   color: white; }
+  .btn--search:nth-child(odd) {
+    background-color: #61dd8b; }
   .btn--search:hover {
     background-color: #39ac5f; }
 

@@ -18,30 +18,28 @@
     <section class="home">
         <h1 class="heading-primary home__title">Find Available Parking Spots</h1>
 
-        <form class="form" id='location' method='post' action='/suggestions'>
-            <button data-id="1" type='submit' name='Submit' value='1,Ashland Ave' class="btn btn--search">Ashland Ave</button>
-            <button data-id="2" type='submit' name='Submit' value='2,Belmont Ave' class="btn btn--search">Belmont Ave</button>
-            <button data-id="3" type='submit' name='Submit' value='3,Michigan Ave' class="btn btn--search">Michigan Ave</button>
-            <button data-id="4" type='submit' name='Submit' value='4,Clark St' class="btn btn--search">Clark St</button>
-            <button data-id="5" type='submit' name='Submit' value='5,Damen Ave' class="btn btn--search">Damen Ave</button>
-            <button data-id="6" type='submit' name='Submit' value='6,Dearborn' class="btn btn--search">Dearborn</button>
-            <button data-id="7" type='submit' name='Submit' value='7,Fullerton Ave' class="btn btn--search">Fullerton Ave</button>
-            <button data-id="8" type='submit' name='Submit' value='8,Grand Ave' class="btn btn--search">Grand Ave</button>
-            <button data-id="9" type='submit' name='Submit' value='9,Halsted Ave' class="btn btn--search">Halsted Ave</button>
-        </form>
+        <div class="container">
+            <form class="form" id='location' method='post' action='/live_location'>
+                <button data-id="1" type='submit' name='Submit' value='1,Ashland Ave' class="btn btn--search">Ashland Ave</button>
+                <button data-id="2" type='submit' name='Submit' value='2,Belmont Ave' class="btn btn--search">Belmont Ave</button>
+                <button data-id="3" type='submit' name='Submit' value='3,Michigan Ave' class="btn btn--search">Michigan Ave</button>
+                <button data-id="4" type='submit' name='Submit' value='4,Clark St' class="btn btn--search">Clark St</button>
+                <button data-id="5" type='submit' name='Submit' value='5,Damen Ave' class="btn btn--search">Damen Ave</button>
+                <button data-id="6" type='submit' name='Submit' value='6,Dearborn' class="btn btn--search">Dearborn</button>
+                <button data-id="7" type='submit' name='Submit' value='7,Fullerton Ave' class="btn btn--search">Fullerton Ave</button>
+                <button data-id="8" type='submit' name='Submit' value='8,Grand Ave' class="btn btn--search">Grand Ave</button>
+                <button data-id="9" type='submit' name='Submit' value='9,Halsted Ave' class="btn btn--search">Halsted Ave</button>
+            </form>
 
-        <h4 class="heading-tertiary">Or</h4>
-
-        <form class="form" id='currentLocation' method='post' action=''>
-            <button type='submit' name='Submit' value='Submit' class="btn btn--current">
-                <i class="fas fa-map-marker-alt"></i>
-                Use Current Location
-            </button>
-        </form>
+            <section class="results">
+                <h3 class="heading-secondary">Showing live results </h3>
+                <div class="available-text" id="results"></div>
+            </section>
+        </div>
 
     </section>
 
-    <script src="https://kit.fontawesome.com/34a50a5364.js"></script>
+    <script src="../app.js"></script>
 </body>
 
 </html>

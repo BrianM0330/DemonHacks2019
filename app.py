@@ -9,7 +9,7 @@ app = Flask(__name__)
 def main_page():
     return render_template('index.html')
 
-@app.route('/suggestions', methods=["GET", "POST"])
+@app.route('/live_location', methods=["GET", "POST"])
 def suggest_parking():
     if request.method == 'POST':
         print(request.form)    
@@ -19,14 +19,14 @@ def suggest_parking():
         location = coordinate[1]
         print("Camera:", camera)
         print("Location:", location)
-        os.system("python3 web_demo.py --CAM_ID=" + camera + " --location=" + location + " -pause=0.01 -w_patch=25 -h_patch=25 --method=0 --output=output.csv")
+        os.system("python web_demo.py --CAM_ID=" + camera + " --location=" + location + " -pause=0.01 -w_patch=25 -h_patch=25 --method=0 --output=output.csv")
     #pass the coordinates to a function that makes a query to the Google Maps API
     #pip install requirements
     #in terminal flask run
     #any errors..google them
     #@app.route is just directing to URLs
     #'/suggestions' leads to / and the suggestions endpoint
-    return location
+    return render_template('index.html')
 
 if __name__ == '__main__':
 	app.run(debug = True)
