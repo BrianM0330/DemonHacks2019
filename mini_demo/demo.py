@@ -37,8 +37,8 @@ nRows_old = 2592
 nCols_old = 1944
 nRows_new = 1000
 nCols_new = 750
-nRows_factor = nRows_new / nRows_old
-nCols_factor = nCols_new / nCols_old
+nRows_factor = float(nRows_new) / float(nRows_old)
+nCols_factor = float(nCols_new) / float(nCols_old)
 
 def load_positions(file_fn):
 	file = open(file_fn, "r")
@@ -126,11 +126,11 @@ def main(argv):
 	h_patch = FLAGS.h_patch
 	method = FLAGS.method
 
+	slots = load_positions("data/camera" + CAM_ID + ".csv")
+
 	train_data = load_train_data("data/LABELS/camera" + CAM_ID + ".txt", W_ID)
 	train_data = process_data(train_data, w_patch, h_patch)
 	clf = train_process(train_data, method)
-
-	slots = load_positions("data/camera" + CAM_ID + ".csv")
 
 	dates = [element for element in next(os.walk(DIR + "/" + WEATHER))[1]]
 	dates.sort()
@@ -154,7 +154,13 @@ def main(argv):
 				w = slot[3]
 				h = slot[4]
 				x2 = x1 + w
+				# if x2 > img.shape[1]:
+				#	x2 = img.shape[1]
 				y2 = y1 + h
+				# if y2 > img.shape[0]:
+				#	y2 = img.shape[0]
+				# print(x1, y1, x2, y2)
+				# print(img.shape)
 
 				x = Image.fromarray(img[y1:y2, x1:x2, :])
 				x = x.resize((w_patch, h_patch))
