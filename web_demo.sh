@@ -20,4 +20,4 @@ h_patch=25
 pause=0.01
 
 # Execution
-$PY demo.py --CAM_ID=$CAM_ID -pause=$pause -w_patch=$w_patch -h_patch=$h_patch --method=$method
+$PY web_demo.py --CAM_ID=$CAM_ID -pause=$pause -w_patch=$w_patch -h_patch=$h_patch --method=$method
