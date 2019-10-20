@@ -11,7 +11,10 @@ import os
 # Using matplotlib for images
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
+
 from PIL import Image
+from PIL import ImageFont
+from PIL import ImageDraw 
 
 from sklearn.linear_model import LogisticRegression
 from sklearn import ensemble
@@ -33,6 +36,7 @@ flags.DEFINE_string('DIR', 'mini_demo/data/FULL_IMAGE_1000x750', 'Directory')
 flags.DEFINE_string('WEATHER', 'SUNNY', 'SUNNY, OVERCAST, RAINY')
 flags.DEFINE_string('W_ID', 'S', 'S, O, R')
 flags.DEFINE_string('location', 'Chicago', 'Location')
+flags.DEFINE_string('output', 'output.csv', 'Output file')
 
 nRows_old = 2592
 nCols_old = 1944
@@ -127,7 +131,9 @@ def main(argv):
 	h_patch = FLAGS.h_patch
 	method = FLAGS.method
 	location = FLAGS.location
+	output = FLAGS.output
 
+	plt.subplot(1, 2, 1)
 	plt.title(location + " - Camera " + CAM_ID)
 	plt.xlabel("Training the Machine Learning model")
 	plt.pause(pause)
@@ -141,18 +147,36 @@ def main(argv):
 	dates = [element for element in next(os.walk(DIR + "/" + WEATHER))[1]]
 	dates.sort()
 
+	output_file = open(output, "w")
+	output_file.write("year,month,day,hour,minute,availability\n")
+
 	for CAPTURE_DATE in dates:
+		year = CAPTURE_DATE[:4]
+		month = CAPTURE_DATE[5:7]
+		day = CAPTURE_DATE[8:10]
+
 		image_names = [element[2] for element in os.walk(DIR + "/" + WEATHER + "/" + CAPTURE_DATE + "/camera" + CAM_ID)]
 		image_names = image_names[0]
 		image_names.sort()
 
 		for image_name in image_names:
 			image_fn = DIR + "/" + WEATHER + "/" + CAPTURE_DATE + "/camera" + CAM_ID + "/" + image_name
+			hour = image_name[11:13]
+			minute = image_name[13:15]
 			# print('Image file:', image_fn)
 
 			# Using matplotlib for images
 			img = Image.open(image_fn)
 			img = np.copy(np.asarray(img))
+
+			plt.subplot(1, 2, 2)
+			# plt.axis([0, img.shape[1], 0, img.shape[0]])
+			white = np.copy(np.asarray(img))
+			white[:, :, :] = 255
+			white = Image.fromarray(white)
+
+			draw = ImageDraw.Draw(white)
+			available = 0
 
 			for slot in slots:
 				x1 = slot[1]
@@ -179,6 +203,10 @@ def main(argv):
 					img[y1:y2, x2, :] = 255
 					img[y1, x1:x2, :] = 255
 					img[y2, x1:x2, :] = 255
+
+					# plt.text(img.shape[1] - y1, x1, "Empty", color = "green")
+					draw.text((x1, y1), "Empty", (0, 255, 0))
+					available += 1
 				else:
 					img[y1:y2, x1, :] = 0
 					img[y1:y2, x2, :] = 0
@@ -190,10 +218,22 @@ def main(argv):
 					img[y1, x1:x2, 0] = 255
 					img[y2, x1:x2, 0] = 255
 
+					# plt.text(img.shape[1] - y1, x1, "Busy", color = "red")
+					draw.text((x1, y1), "Busy", (255, 0, 0))
+
+			plt.title("Availability map")
+			plt.imshow(white)
+			plt.xlabel("Number of empty slots: " + str(available))
+
+			plt.subplot(1, 2, 1)
 			plt.title(location + " - Camera " + CAM_ID)
-			plt.xlabel(image_name)
+			plt.xlabel(str(year) + "-" + str(month) + "-" + str(day) + " " + str(hour) + ":" + str(minute))
 			plt.imshow(img)
 			plt.pause(pause)
+			plt.clf()
+
+			output_file.write(str(year) + "," + str(month) + "," + str(day) + "," + str(hour) + "," + str(minute) + "," + str(available) + "\n")
+	output_file.close()
 	plt.show()
 	plt.close()
 

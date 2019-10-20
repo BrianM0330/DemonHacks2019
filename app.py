@@ -19,7 +19,7 @@ def suggest_parking():
         location = coordinate[1]
         print("Camera:", camera)
         print("Location:", location)
-        os.system("python3 web_demo.py --CAM_ID=" + camera + " --location=" + location + " -pause=0.01 -w_patch=25 -h_patch=25 --method=0")
+        os.system("python3 web_demo.py --CAM_ID=" + camera + " --location=" + location + " -pause=0.01 -w_patch=25 -h_patch=25 --method=0 --output=output.csv")
     #pass the coordinates to a function that makes a query to the Google Maps API
     #pip install requirements
     #in terminal flask run
