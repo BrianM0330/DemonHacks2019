@@ -1,0 +1,29 @@
+.btn,
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    font-size: 1.9rem;
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.btn--search {
+    background-color: #55c57a;
+    color: white;
+
+    &:hover {
+        background-color: #39ac5f;
+    }
+}
+
+.btn--current {
+    background-color: #8AC7DB;
+    color: white;
+
+    &:hover {
+        background-color: #338BA8;
+    }
+}
